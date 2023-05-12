@@ -1,0 +1,11 @@
+<!-- users/templates/users/edit_profile.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Edit profile</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+{% endblock %}
