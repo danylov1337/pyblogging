@@ -11,7 +11,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('posts:post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'posts/post_edit.html', {'form': form})
@@ -31,7 +31,7 @@ def add_comment_to_post(request, pk):
             comment.post = post
             comment.author = request.user
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('posts:post_detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, 'posts/add_comment_to_post.html', {'form': form})
