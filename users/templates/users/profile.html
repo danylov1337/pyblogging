@@ -5,5 +5,7 @@
   <p>Bio: {{ profile.bio }}</p>
   <p>Location: {{ profile.location }}</p>
   <p>Birth date: {{ profile.birth_date }}</p>
-  <a href="{% url 'edit_profile' %}">Edit Profile</a>
+  <a href="{% url 'users:edit_profile' %}">Edit Profile</a>
+  <a href="{% url 'posts:create_post' %}">Create post</a>
+  <a href="{% url 'posts:post_list' %}">View posts</a>
 {% endblock %}

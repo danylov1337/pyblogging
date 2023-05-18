@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
@@ -35,3 +35,9 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'posts/add_comment_to_post.html', {'form': form})
+
+def post_list(request):
+    posts = Post.objects.all()
+    for post in posts:
+        print(post.author)
+    return render(request, 'posts/post_list.html', {'posts': posts})
